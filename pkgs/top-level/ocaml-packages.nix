@@ -2093,9 +2093,7 @@ let
           inherit (pkgs) git;
         };
 
-        tar-eio = callPackage ../development/ocaml-modules/tar/eio.nix {
-          inherit (pkgs) git;
-        };
+        tar-eio = callPackage ../development/ocaml-modules/tar/eio.nix { };
 
         tcpip = callPackage ../development/ocaml-modules/tcpip { };
 
@@ -2338,16 +2336,7 @@ let
 
         google-drive-ocamlfuse = callPackage ../applications/networking/google-drive-ocamlfuse { };
 
-        hol_light = callPackage ../applications/science/logic/hol_light {
-          camlp5 =
-            if lib.versionAtLeast camlp5.version "8.04.00" then
-              camlp5.overrideAttrs {
-                version = "8.03.2";
-                __intentionallyOverridingVersion = true;
-              }
-            else
-              camlp5;
-        };
+        hol_light = callPackage ../applications/science/logic/hol_light { };
 
         ### End ###
 
