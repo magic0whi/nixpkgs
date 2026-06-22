@@ -386,8 +386,8 @@ let
       in
       {
         script = ''
-          if [[ -h '${output}' ]]; then
-            rm '${output}'
+          if [[ -h "${output}" ]]; then
+            rm "${output}"
           fi
 
           inherit_errexit_enabled=0
@@ -405,7 +405,7 @@ let
             '') (attrNames secrets)
         )
         + "\n"
-        + "${pkgs.jq}/bin/jq >'${output}' "
+        + ''${pkgs.jq}/bin/jq >"${output}" ''
         + escapeShellArg (
           stringOrDefault (concatStringsSep " | " (
             imap1 (
